@@ -218,7 +218,7 @@ export default function Contact() {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="John Carter"
+                    placeholder="اكتب اسمك هنا"
                     autoComplete="name"
                     className={[inputBase, errors.name ? 'border-rose-500/60' : ''].join(' ')}
                   />
@@ -244,7 +244,7 @@ export default function Contact() {
                     name="phone"
                     value={form.phone}
                     onChange={handleChange}
-                    placeholder="(123) 456 - 789"
+                    placeholder="اكتب رقم الهاتف مع مفتاح الدولة"
                     autoComplete="tel"
                     className={inputBase}
                     dir="ltr"
