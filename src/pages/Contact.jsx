@@ -139,22 +139,22 @@ export default function Contact() {
                 {
                   icon: <FaEnvelope className="h-4 w-4" />,
                   label: t('Email', 'البريد الإلكتروني'),
-                  value: 'your_email@gmail.com',
-                  href: 'mailto:your_email@gmail.com',
+                  value: 'abdehsaleh77aash@gmail.com',
+                  href: 'mailto:abdehsaleh77aash@gmail.com',
                   target: null,
                 },
                 {
                   icon: <FaWhatsapp className="h-4 w-4" />,
                   label: t('WhatsApp', 'واتساب'),
-                  value: '+967 770 000 000',
-                  href: 'https://wa.me/967770000000?text=مرحباً عبدالملك، لدي مشروع أريد مناقشته',
+                  value: '+967 774 305 5505',
+                  href: 'https://wa.me/967774305505?text=مرحباً عبدالملك، لدي مشروع أريد مناقشته',
                   target: '_blank',
                 },
                 {
                   icon: <FaPhoneAlt className="h-4 w-4" />,
                   label: t('Phone Call', 'اتصال'),
                   value: '+967 770 000 000',
-                  href: 'tel:+967770000000',
+                  href: 'tel:+967774305505',
                   target: null,
                 },
               ].map((item) => (
@@ -185,8 +185,8 @@ export default function Contact() {
             {/* Social buttons */}
             <div className="flex gap-3 flex-wrap">
               {[
-                { id: 'github', label: 'GitHub', href: 'https://github.com/YOUR_GITHUB', icon: 'github' },
-                { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/in/YOUR_LINKEDIN/', icon: 'linkedin' }
+                { id: 'github', label: 'GitHub', href: 'https://github.com/Abdualmalik-Saleh', icon: 'github' },
+                { id: 'linkedin', label: 'LinkedIn', href: 'www.linkedin.com/in/dev-abdulmalik-al-salemi/', icon: 'linkedin' }
               ].map((s) => (
                 <a
                   key={s.id}
@@ -250,13 +250,13 @@ export default function Contact() {
                     dir="ltr"
                   />
                 </Field>
-                <Field label={t('Company', 'الشركة')}>
+                <Field label={t('Company', 'الشركة او الجهة')}>
                   <input
                     type="text"
                     name="company"
                     value={form.company}
                     onChange={handleChange}
-                    placeholder={t('Your Company', 'شركتك')}
+                    placeholder={t('Your Company', 'شركتك او جهتك')}
                     autoComplete="organization"
                     className={inputBase}
                   />
@@ -307,7 +307,7 @@ export default function Contact() {
                   <span className="text-sm font-medium">
                     {t(
                       "Message sent successfully! I'll get back to you soon.",
-                      'تم إرسال الرسالة بنجاح! سأعود إليك قريباً.'
+                      'تم إرسال الرسالة بنجاح! سيتم الرد عليك في اقرب وقت.'
                     )}
                   </span>
                 </div>
