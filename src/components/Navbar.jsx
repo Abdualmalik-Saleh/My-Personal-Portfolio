@@ -131,7 +131,7 @@ export default function Navbar() {
           aria-label={t('Home', 'الرئيسية')}
         >
           <span className="gradient-text-brand">
-            {t('Web & Mobile Developer', 'مطور ويب وموبايل')}
+            {t('Web & Mobile Developer', 'مطور تطبيقات وصفحات الويب')}
           </span>
         </NavLink>
 
@@ -240,7 +240,7 @@ export default function Navbar() {
                   aria-label={t('Home', 'الرئيسية')}
                 >
                   <span className="gradient-text-brand">
-                    {t('Web & Mobile Developer', 'مطور ويب وموبايل')}
+                    {t('Web & Mobile Developer', 'مطور تطبيقات وصفحات الويب')}
                   </span>
                 </NavLink>
 

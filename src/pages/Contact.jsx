@@ -146,14 +146,14 @@ export default function Contact() {
                 {
                   icon: <FaWhatsapp className="h-4 w-4" />,
                   label: t('WhatsApp', 'واتساب'),
-                  value: '+967 774 305 5505',
+                  value: '+967 774 305 505',
                   href: 'https://wa.me/967774305505?text=مرحباً عبدالملك، لدي مشروع أريد مناقشته',
                   target: '_blank',
                 },
                 {
                   icon: <FaPhoneAlt className="h-4 w-4" />,
                   label: t('Phone Call', 'اتصال'),
-                  value: '+967 770 000 000',
+                  value: '+967 774 305 505',
                   href: 'tel:+967774305505',
                   target: null,
                 },

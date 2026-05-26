@@ -33,7 +33,7 @@ export const profile = {
   aboutP1En:
     'I am a Web & Mobile Developer focusing on building production-ready applications. I enjoy designing APIs, creating interactive user interfaces, and optimizing performance to deliver smooth and efficient user experiences.',
   aboutP1Ar:
-    'أنا مطور ويب وموبايل  أركز على بناء تطبيقات جاهزة للإنتاج. أستمتع بتصميم واجهات برمجة التطبيقات وإنشاء واجهات مستخدم تفاعلية وتحسين الأداء لتقديم تجارب مستخدم سلسة وفعالة.',
+    'أنا مطور تطبيقات وصفحات الويب  أركز على بناء تطبيقات جاهزة للإنتاج. أستمتع بتصميم واجهات برمجة التطبيقات وإنشاء واجهات مستخدم تفاعلية وتحسين الأداء لتقديم تجارب مستخدم سلسة وفعالة.',
   aboutP2En:
     "Along with strong problem-solving skills, I follow clean architecture principles and modern development patterns. I'm passionate about writing maintainable code, improving UI/UX flows, and building applications that feel fast, secure, and intuitive.",
   aboutP2Ar:
@@ -46,7 +46,7 @@ export const profile = {
   ],
   infoAr: [
     { label: 'الاسم',      value: 'عبدالملك السالمي' },
-    { label: 'الدور',      value: 'مطور ويب وموبايل' },
+    { label: 'الدور',      value: 'مطور تطبيقات وصفحات الويب' },
     { label: 'الموقع',     value: 'اليمن' },
     { label: 'التوافر',    value: 'متاح للعمل' },
   ],

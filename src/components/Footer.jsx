@@ -24,7 +24,7 @@ export default function Footer() {
           {/* Brand */}
           <NavLink to="/" className="text-base font-bold">
             <span className="gradient-text-brand">
-              {t('Web & Mobile Developer', 'مطور ويب وموبايل')}
+              {t('Web & Mobile Developer', 'مطور تطبيقات وصفحات الويب')}
             </span>
           </NavLink>
 
