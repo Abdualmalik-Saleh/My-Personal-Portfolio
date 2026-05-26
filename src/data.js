@@ -11,7 +11,7 @@
 export const profile = {
   nameEn: 'Abdulmalik Al-Salemi',
   nameAr: 'عبدالملك السالمي',
-  roleEn: 'Junior Web & Mobile Developer',
+  roleEn: 'Web & Mobile Developer',
   roleAr: 'مطور ويب وتطبيقات موبايل',
   taglineEn:
     'I build scalable web & mobile applications using React, Node.js, Express and MongoDB. I love clean code and fast UIs.',
@@ -31,9 +31,9 @@ export const profile = {
     { valueEn: '10+', valueAr: '+١٠', labelEn: 'Happy Clients', labelAr: 'عميل سعيد' },
   ],
   aboutP1En:
-    'I am a Junior Web & Mobile Developer focusing on building production-ready applications. I enjoy designing APIs, creating interactive user interfaces, and optimizing performance to deliver smooth and efficient user experiences.',
+    'I am a Web & Mobile Developer focusing on building production-ready applications. I enjoy designing APIs, creating interactive user interfaces, and optimizing performance to deliver smooth and efficient user experiences.',
   aboutP1Ar:
-    'أنا مطور ويب وموبايل مبتدئ أركز على بناء تطبيقات جاهزة للإنتاج. أستمتع بتصميم واجهات برمجة التطبيقات وإنشاء واجهات مستخدم تفاعلية وتحسين الأداء لتقديم تجارب مستخدم سلسة وفعالة.',
+    'أنا مطور ويب وموبايل  أركز على بناء تطبيقات جاهزة للإنتاج. أستمتع بتصميم واجهات برمجة التطبيقات وإنشاء واجهات مستخدم تفاعلية وتحسين الأداء لتقديم تجارب مستخدم سلسة وفعالة.',
   aboutP2En:
     "Along with strong problem-solving skills, I follow clean architecture principles and modern development patterns. I'm passionate about writing maintainable code, improving UI/UX flows, and building applications that feel fast, secure, and intuitive.",
   aboutP2Ar:

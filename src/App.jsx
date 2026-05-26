@@ -3,20 +3,20 @@
  *
  * Architecture:
  *   BrowserRouter
- *     └─ Routes
- *          └─ Route path="/"  element={<Layout />}   ← shared shell
- *               ├─ Route index          → <Home />
- *               ├─ Route path="about"   → <About />
- *               ├─ Route path="services"→ <Services />
- *               ├─ Route path="projects"→ <Projects />
- *               ├─ Route path="contact" → <Contact />
- *               └─ Route path="*"       → <NotFound />
- *
- * Layout.jsx wraps Navbar + <Outlet> + Footer.
- * Each page is a DISCRETE COMPONENT — no anchor-link routing.
+ *     └─ AnimatedRoutes
+ *          └─ AnimatePresence
+ *               └─ Routes (key = location.pathname)
+ *                    └─ Route path="/"  element={<PageTransition><Layout /></PageTransition>}   ← shared shell
+ *                         ├─ Route index          → <PageTransition><Home /></PageTransition>
+ *                         ├─ Route path="about"   → <PageTransition><About /></PageTransition>
+ *                         ├─ Route path="services"→ <PageTransition><Services /></PageTransition>
+ *                         ├─ Route path="projects"→ <PageTransition><Projects /></PageTransition>
+ *                         ├─ Route path="contact" → <PageTransition><Contact /></PageTransition>
+ *                         └─ Route path="*"       → <PageTransition><NotFound /></PageTransition>
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { LanguageProvider } from './context/LanguageContext';
 
 import Layout   from './components/Layout';
@@ -29,25 +29,52 @@ import Contact  from './pages/Contact';
 // ── 404 page ─────────────────────────────────────────────────────────────────
 import NotFound from './pages/NotFound';
 
+// ── Page Transition Component / مكون تأثير انتقال الصفحات ──────────────────────
+// يلتف هذا المكون حول محتوى كل مسار لتوفير حركة سينمائية عند الدخول والخروج
+function PageTransition({ children }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// ── Animated Routes Component / مكون المسارات المتحركة ────────────────────────
+// يحتوي على منطق تحريك المسارات بالاعتماد على موقع المسار الحالي (location)
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/*
+         * جميع الصفحات تشترك في هيكل التصميم الخارجي (Layout)
+         * Layout renders: <Navbar> + <main><Outlet /></main> + <Footer>
+         */}
+        <Route path="/" element={<PageTransition><Layout /></PageTransition>}>
+          <Route index          element={<PageTransition><Home /></PageTransition>} />
+          <Route path="about"   element={<PageTransition><About /></PageTransition>} />
+          <Route path="services"element={<PageTransition><Services /></PageTransition>} />
+          <Route path="projects"element={<PageTransition><Projects /></PageTransition>} />
+          <Route path="contact" element={<PageTransition><Contact /></PageTransition>} />
+          {/* Catch-all 404 - صفحة الخطأ */}
+          <Route path="*"       element={<PageTransition><NotFound /></PageTransition>} />
+        </Route>
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
-        <Routes>
-          {/*
-           * All real pages share the Layout shell.
-           * Layout renders: <Navbar> + <main><Outlet /></main> + <Footer>
-           */}
-          <Route path="/" element={<Layout />}>
-            <Route index          element={<Home />} />
-            <Route path="about"   element={<About />} />
-            <Route path="services"element={<Services />} />
-            <Route path="projects"element={<Projects />} />
-            <Route path="contact" element={<Contact />} />
-            {/* Catch-all 404 */}
-            <Route path="*"       element={<NotFound />} />
-          </Route>
-        </Routes>
+        <AnimatedRoutes />
       </BrowserRouter>
     </LanguageProvider>
   );

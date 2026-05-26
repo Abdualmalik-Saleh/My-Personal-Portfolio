@@ -1,0 +1,106 @@
+/**
+ * Footer.jsx
+ * Brand | Nav links | Social icons | Copyright
+ * RTL-safe via logical properties.
+ */
+
+import { NavLink } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
+import { navLinks } from '../data';
+import { FaEnvelope, FaWhatsapp, FaPhoneAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+
+export default function Footer() {
+  const { t } = useLanguage();
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="border-t border-blue-500/10 bg-navy-900/50 backdrop-blur-sm">
+      {/* Gradient line */}
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+
+      <div className="mx-auto max-w-6xl px-6 py-6">
+        {/* Top row */}
+        <div className="flex flex-wrap items-center justify-between gap-6">
+          {/* Brand */}
+          <NavLink to="/" className="text-base font-bold">
+            <span className="gradient-text-brand">
+              {t('Web & Mobile Developer', 'مطور ويب وموبايل')}
+            </span>
+          </NavLink>
+
+          {/* Footer nav */}
+          <nav aria-label={t('Footer navigation', 'تنقل التذييل')}>
+            <ul className="flex flex-wrap items-center gap-1">
+              {navLinks.map((link) => (
+                <li key={link.id}>
+                  <NavLink
+                    to={link.path}
+                    className="rounded-md px-3 py-1 text-sm font-medium text-slate-400 transition-colors hover:text-white"
+                  >
+                    {t(link.labelEn, link.labelAr)}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+         {/* Socials */}
+          <div className="flex items-center gap-4">
+            <a
+              href="mailto:your_email@gmail.com"
+              aria-label="Email"
+              className="text-xl text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+            >
+              <FaEnvelope />
+            </a>
+            <a
+              href="https://wa.me/967770000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
+              className="text-xl text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="tel:+967770000000"
+              aria-label="Phone"
+              className="text-xl text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+            >
+              <FaPhoneAlt />
+            </a>
+            <a
+              href="https://github.com/YOUR_GITHUB"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="text-xl text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/YOUR_LINKEDIN"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="text-xl text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:text-cyan-400 hover:drop-shadow-[0_0_12px_rgba(34,211,238,0.8)]"
+            >
+              <FaLinkedin />
+            </a>
+          </div> 
+        </div>
+
+        {/* Divider */}
+        <div className="mt-6 h-px w-full bg-white/5" />
+
+        {/* Copyright */}
+        <p className="mt-4 text-center text-sm text-slate-500">
+          {t(
+            `Copyright © ${year} Abdulmalik Al-Salemi | All Rights Reserved`,
+            `حقوق النشر © ${year} عبدالملك السالمي | جميع الحقوق محفوظة`
+          )}
+        </p>
+      </div>
+    </footer>
+  );
+}

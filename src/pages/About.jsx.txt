@@ -125,12 +125,54 @@ export default function About() {
           <div className="flex justify-center lg:justify-start">
             <GradientCard className="w-full max-w-[360px]" noHover>
               <div className="overflow-hidden rounded-[calc(1rem-1px)]">
-                {/* Real Developer Image */}
-                    <img
-                      src="/hero-image.png"
-                      alt={t(profile.nameEn, profile.nameAr)}
-                      className="h-full w-full object-cover"
-                    />
+                {/* SVG avatar */}
+                <svg
+                  viewBox="0 0 400 500"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full"
+                  aria-label={t(profile.nameEn, profile.nameAr)}
+                >     
+                  <defs>
+                    <linearGradient id="ab-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0f1a30" />
+                      <stop offset="100%" stopColor="#1a0d3c" />
+                    </linearGradient>
+                    <linearGradient id="ab-body" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#1e3a5f" />
+                      <stop offset="100%" stopColor="#2d1b4e" />
+                    </linearGradient>
+                    <linearGradient id="ab-grd" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#3b82f6" />
+                      <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                    <radialGradient id="ab-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                    </radialGradient>
+                  </defs>
+                  {/* Background */}
+                  <rect width="400" height="500" fill="url(#ab-bg)" />
+                  {/* Glow */}
+                  <circle cx="200" cy="200" r="180" fill="url(#ab-glow)" />
+                  {/* Body */}
+                  <ellipse cx="200" cy="510" rx="150" ry="130" fill="url(#ab-body)" />
+                  {/* Head */}
+                  <circle cx="200" cy="185" r="100" fill="url(#ab-body)" />
+                  <circle cx="200" cy="185" r="97" fill="none" stroke="rgba(59,130,246,0.15)" strokeWidth="1" />
+                  {/* Face */}
+                  <circle cx="178" cy="175" r="10" fill="rgba(148,163,184,0.75)" />
+                  <circle cx="222" cy="175" r="10" fill="rgba(148,163,184,0.75)" />
+                  <path d="M 175 210 Q 200 232 225 210" stroke="rgba(148,163,184,0.8)" strokeWidth="4" fill="none" strokeLinecap="round" />
+                  {/* Hair */}
+                  <path d="M 108 175 Q 112 88 200 88 Q 288 88 292 175 Q 260 145 200 145 Q 140 145 108 175Z" fill="rgba(20,40,80,0.9)" />
+                  {/* Collar / shirt */}
+                  <path d="M 120 360 Q 140 330 200 325 Q 260 330 280 360 L 310 500 L 90 500Z" fill="rgba(15,26,48,0.9)" />
+                  {/* Code badge */}
+                  <rect x="120" y="405" width="160" height="38" rx="10" fill="rgba(59,130,246,0.15)" stroke="rgba(59,130,246,0.4)" strokeWidth="1.5" />
+                  <text x="200" y="429" fontFamily="monospace" fontSize="13" fill="#60a5fa" textAnchor="middle">&lt;/developer&gt;</text>
+                  {/* Blue rim light */}
+                  <circle cx="200" cy="185" r="100" fill="none" stroke="url(#ab-grd)" strokeWidth="0.5" opacity="0.4" />
+                </svg>
               </div>
             </GradientCard>
           </div>
@@ -144,7 +186,7 @@ export default function About() {
 
             {/* Title */}
             <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-              {t('About Me', 'عني')}
+              {t('About Me', 'عن نفسي')}
             </h1>
 
             {/* Bio paragraphs */}
